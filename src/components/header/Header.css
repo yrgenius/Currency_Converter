@@ -1,0 +1,36 @@
+.header {
+    background-color: rgb(41, 207, 0);
+    color: aliceblue;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1250px;
+    padding: 10px 0;
+}
+
+.header__title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.header__list {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    list-style: none;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.header__item {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.header__item:hover {
+    border-color: aliceblue;
+}

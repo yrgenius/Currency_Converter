@@ -1,0 +1,27 @@
+.rate__title {
+    margin: 20px auto;
+    text-align: left;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.rate__item {
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 300px;
+    box-shadow: 10px 10px 10px #333;
+}
+
+.rate__item-title {
+    font-size: 25px;
+}
+
+.rate__item-text {
+    font-size: 20px;
+}
