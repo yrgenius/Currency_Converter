@@ -16,6 +16,8 @@
     padding: 10px;
     min-width: 300px;
     box-shadow: 10px 10px 10px #333;
+    display: flex;
+    justify-content: space-between;
 }
 
 .rate__item-title {
@@ -24,4 +26,5 @@
 
 .rate__item-text {
     font-size: 20px;
+    text-align: right;
 }
