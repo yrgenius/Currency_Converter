@@ -1,6 +1,12 @@
 .calc {
     font-size: 20px;
     text-align: left;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 300px;
+    box-shadow: 10px 10px 10px #333;
+    width: fit-content;
 }
 
 .calc__title {
@@ -14,4 +20,30 @@
 
 .calc__subtitle {
     font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.calc__choice {
+    margin-bottom: 20px;
+}
+
+.calc__item {
+    font-size: 25px;
+}
+
+.calc__radio-input {
+    height: 20px;
+    width: 20px;
+}
+
+.calc__number {
+    margin-bottom: 20px;
+}
+
+.calc__number input {
+    width: 120px;
+}
+
+.calc__out h4 {
+    margin-bottom: 7px;
 }
