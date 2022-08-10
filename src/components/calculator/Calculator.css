@@ -1,0 +1,17 @@
+.calc {
+    font-size: 20px;
+    text-align: left;
+}
+
+.calc__title {
+    margin: 20px auto;
+}
+
+.calc__wrapper {
+    display: block;
+    margin: 15px 0;
+}
+
+.calc__subtitle {
+    font-size: 25px;
+}

@@ -1,64 +1,77 @@
-import React from 'react';
-import './Rate.css';
+import React from "react";
+import "./Rate.css";
 
 export default class Rate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: '',
-            month: '',
-            year: '',
             currencyRate: {},
-        }
-        this.base = 'USD';
-        this.currency = ['RUB', 'EUR'];
+        };
         this.getRate();
     }
-    
-    getRate(){
-        const apiKey = '7955d9e713214a36863e9d6c2189a041';
-        const url = 'https://openexchangerates.org/api/latest.json?app_id=';
-        // const base = `&base=${this.base}`;
-        // const country = `&symbols=${this.currency}`;
-        let now = '';
+
+    getRate() {
+        const url = "https://openexchangerates.org/api/latest.json?app_id=";
+        const apiKey = "7955d9e713214a36863e9d6c2189a041";
+        // const baseCurrency = 'USD'
+        // const base = `&base=${baseCurrency}`;
+        // const currency = ["RUB", "EUR"];
+        // const country = `&symbols=${currency}`;
 
         fetch(url + apiKey)
-            .then(data => (data.json()))
-            .then(data => {
-                console.log(data);
-                now = new Date(data.timestamp); 
-                
+            .then((data) => data.json())
+            .then((data) => {
                 this.setState({
-                    date: now.getDate(),
-                    month: now.getMonth(),
-                    year: now.getFullYear(),
                     currencyRate: {
-                        rub: (data.rates['RUB']).toFixed(2),
-                        eur: (data.rates['EUR']).toFixed(2),
+                        rub: data.rates["RUB"].toFixed(2),
+                        eur: data.rates["EUR"].toFixed(2),
                     },
                 });
-            }
-            );
+            });
     }
+
+    getLocalDate(date) {
+        let month = [
+            "января",
+            "февраля",
+            "марта",
+            "апреля",
+            "мая",
+            "июня",
+            "июля",
+            "августа",
+            "сентября",
+            "октября",
+            "ноября",
+            "декабря",
+        ];
+
+        return `${date.getDate()} ${
+            month[date.getMonth()]
+        } ${date.getFullYear()}`;
+    }
+
     render() {
         return (
             <div className="rate">
-                <h2 className="rate__title">{`Курсы валют на ${this.state.date} ${this.state.month} ${this.state.year}`}</h2>
+                <h2 className="rate__title">{`Курсы валют на ${this.getLocalDate(
+                    new Date()
+                )}`}</h2>
                 <div className="wrapper">
                     <div className="rate__item">
                         <p className="rate__item-title">USD</p>
                         <p className="rate__item-text">{`${this.state.currencyRate.rub} RUB`}</p>
-                        <p className="rate__item-text">{`${this.state.currencyRate.eur} EUR`}</p>
+                    </div>
+                    <div className="rate__item">
+                        <div className="rate__item-title">EUR</div>
+                        <div className="rate__item-text">{`${(
+                            this.state.currencyRate.rub /
+                            this.state.currencyRate.eur
+                        ).toFixed(2)} RUB`}</div>
                     </div>
                     <div className="rate__item">
                         <div className="rate__item-title">BTC</div>
-                        <div className="rate__item-text">1500 кг</div>
-                        <div className="rate__item-text">3000 kg</div>
-                    </div>
-                    <div className="rate__item">
-                        <div className="rate__item-title">USD</div>
-                        <div className="rate__item-text">1500 кг</div>
-                        <div className="rate__item-text">3000 kg</div>
+                        <div className="rate__item-text">23000 USD</div>
                     </div>
                 </div>
             </div>
